@@ -14,3 +14,5 @@ listsdir = os.listdir('.')
 
 for y in listsdir:
     print y
+
+print "all"
