@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-import os, shutil
+import os, shutil, datetime
 
 applogs = ['/app/yxpt1.0/msgsave/main/logs/',
-	'/app/yxpt1.0/synco2o/main/logs/']
+	       '/app/yxpt1.0/synco2o/main/logs/']
 
 def movefile(s,d):
     filename = os.listdir(s)
@@ -17,9 +17,8 @@ def tarfiel(s,f):
 
 
 if __name__ == '__main__':
-    import datetime
-    yesterday = datetime.datetime.today()
+    yesterday = (datetime.datetime.today() - datetime.timedelta(days=8)).strftime("%Y%m%d")
     for x in applogs:
-        movefile(x, '/logsbackup/msgsave/' + yest)
-        tarfiel('/logsbackup/msgsave/', yest)
+        movefile(x, '/logsbackup/msgsave/' + yesterday)
+        tarfiel('/logsbackup/msgsave/', yesterday)
 
